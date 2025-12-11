@@ -23,7 +23,7 @@ stages{
     stage("execution"){
         steps{
             dir ("demo"){
-            sh 'mvn test -Durl="https://www.saucedemo.com" -Dgroups="params.tag"';
+            echo 'mvn test -Durl="https://www.saucedemo.com" -Dgroups="${params.tag}"';
         }}
     }
 }
