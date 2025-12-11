@@ -1,7 +1,7 @@
 pipeline{
 agent{
     docker{
-      image 'selenium/standalone-chrome:latest'
+      image 'maven:latest'
       args '--entrypoint='
     }
     
