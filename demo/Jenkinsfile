@@ -9,9 +9,11 @@ agent{
 stages{
     stage("dependance"){
         steps{
+            dir ("demo"){
+                
             sh 'mvn --version'
             sh 'mvn clean compile'
-            
+            }
         }
     }
     stage("execution"){
