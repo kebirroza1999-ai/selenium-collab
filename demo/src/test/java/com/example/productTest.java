@@ -25,7 +25,7 @@ public void prod(){
     WebDriver driver= null;
     try {
        
-        grid = new URL("http://localhost:4444");
+        grid = new URL("http://172.17.0.2:4444");
     ChromeOptions co=new ChromeOptions();
      driver = new RemoteWebDriver(grid,co);
     } catch (MalformedURLException e) {
