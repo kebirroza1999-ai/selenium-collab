@@ -1,0 +1,23 @@
+pipeline{
+agent{
+    docker{
+      image "selenium/standalone-chrome:latest",
+      args "--entrypoint=";
+    }
+    
+}
+stages{
+    stage("dependance"){
+        steps{
+            sh "mvn clean compile";
+        }
+    }
+    stage("execution"){
+        steps{
+            sh "mvn test -Durl='https://www.saucedemo.com' --Dgroups='@regression'";
+        }
+    }
+}
+
+
+}
