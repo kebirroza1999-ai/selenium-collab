@@ -1,11 +1,15 @@
 pipeline{
 agent{
+    
     docker{
       image 'maven:latest'
       args '--entrypoint='
+    }   
+}
+    parameters{
+        choice(name:'tag', choices:['@regression','@integration'])
     }
     
-}
 stages{
     stage("dependance"){
         steps{
@@ -19,7 +23,7 @@ stages{
     stage("execution"){
         steps{
             dir ("demo"){
-            sh 'mvn test -Durl="https://www.saucedemo.com" -Dgroups="@integration"';
+            sh 'mvn test -Durl="https://www.saucedemo.com" -Dgroups="params.tag"';
         }}
     }
 }
